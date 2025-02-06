@@ -1,0 +1,10 @@
+import os
+from abc import xyz
+Class A:
+    x,y = 4,5
+    def __init__(self):
+        print("This is Class A")
+
+Class B:
+    def __init__(self):
+        print("This is Class B")
