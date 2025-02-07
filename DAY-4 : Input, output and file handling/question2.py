@@ -36,7 +36,13 @@ with open("python_script.py",'r') as file:
         
         #logic to check for function name and inserting it into dictionary
         elif line[0]=="def":
-            dictionary["function"].append(line[1])
+            fun_name=''
+            for char in line[1]:
+                if char=="(":
+                    break
+                else:
+                    fun_name+=char
+            dictionary["function"].append(fun_name)
 
         #logic to check for class name and inserting it into dictionary
         elif line[0]=="class":
