@@ -46,13 +46,27 @@ if command[0]=='csvlook':
             unique.add(int(num))
 
     if "--skip-row" in command:
-        skip= int(command[command.index("--skip-row")+1])
+        skip= command[command.index("--skip-row")+1]
+        if skip.startswith("-") or '.' in skip:
+            skip=0
+        else:
+            skip=int(skip)
+        
 
     if "--head" in command:
-        head= int(command[command.index("--head")+1])
+        head= command[command.index("--head")+1]
+        if head.startswith("-") or '.' in head:
+            head=5
+        else:
+            head=int(head)
+        
 
     if "--tail" in command:
-        tail= int(command[command.index("--tail")+1])
+        tail= command[command.index("--tail")+1]
+        if tail.startswith("-") or '.' in tail:
+            tail=5
+        else:
+            tail=int(tail)
     
     #initialising an empty list to store the content of file
     lines=[]
@@ -67,11 +81,11 @@ if command[0]=='csvlook':
     stop=len(lines)
 
     # adjusting values of start and stop according to the arguments
-    if int(skip)>0:
+    if skip>0:
         start+=skip
-    if int(head)>0:
-        stop=head
-    if int(tail)>0:
+    if head>0:
+        stop=head+1
+    if tail>0:
         start= stop - tail
 
     #iterating the content of lines
