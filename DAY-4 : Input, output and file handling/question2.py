@@ -28,7 +28,7 @@ with open("python_script.py",'r') as file:
     for line in file:
 
         #Preprocessing: replacing colon with empty string, comma with space, stripping to remove the new line and split at spaces
-        line=line.lower().replace(":",'').replace(",",' ').strip().split(" ")
+        line=line.lower().replace(":",'').strip().split(" ")
 
         #logic to check for module name and inserting it into dictionary
         if line[0]=="import" or line[0]=="from":
@@ -60,6 +60,11 @@ with open("python_script.py",'r') as file:
                 
                 #inserting the names of the variable in dictionary
                 else:
+                    #checking if variable have self in its name if yes then removing self from name
+                    if line[words].startswith('self'):
+                        line[words] = line[words].split(".")[-1]
+
+                    #adding variable name into dictionary
                     dictionary["variable"].add(line[words])
     
     #type casting set into list to encounter any error in making json file
