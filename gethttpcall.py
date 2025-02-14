@@ -2,7 +2,7 @@ import requests as req
 import json
 
 class getcall:
-    def __init__(self, url,data={}, header='', type='get'):
+    def __init__(self, url, data={}, header='', type='get'):
         self.url = url
         self.header = header
         self.data = data
