@@ -16,7 +16,7 @@ class getcall:
                 json_data= data.json()
                 print(json.dumps(json_data, indent=4))
         except Exception as e:
-            raise e
+            print(e)
     
     def typecheck(self):
         try:
