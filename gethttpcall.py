@@ -6,7 +6,7 @@ class getcall:
         self.url = url
         self.header = header
         self.data = data
-        self.type= type
+        self.type = type
         self.typecheck()
         
     def getdata(self):
@@ -29,6 +29,6 @@ class getcall:
 
 while True:
     url = input("Enter The URL : ")
-    if url=="" or url ==" ":
+    if url == "" or url == " ":
         url = "https://jsonplaceholder.typicode.com/posts"
     obj = getcall(url)
