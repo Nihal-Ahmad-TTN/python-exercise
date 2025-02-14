@@ -11,9 +11,9 @@ class getcall:
         
     def getdata(self):
         try:
-            data= req.get(self.url)
+            data = req.get(self.url)
             if data.status_code == 200:
-                json_data= data.json()
+                json_data = data.json()
                 print(json.dumps(json_data, indent=4))
         except Exception as e:
             print(e)
