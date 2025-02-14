@@ -29,6 +29,7 @@ class getcall:
 
 while True:
     url = input("Enter The URL : ")
+    type = input("Enter The Type : ")
     if url == "" or url == " ":
         url = "https://jsonplaceholder.typicode.com/posts"
-    obj = getcall(url)
+    obj = getcall(url, type)
